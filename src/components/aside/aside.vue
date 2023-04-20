@@ -7,7 +7,7 @@
     </a-layout-header>
     <!--todo: 面包屑待做，通过面包屑进行页面的跳转-->
     <a-layout-content style="padding: 0 50px">
-      <Breadcrumb/>
+      
       <a-layout style="padding: 24px 0; background: #fff">
         <a-layout-sider width="200" style="background: #fff">
           <!--通过递归子组件方式进行渲染
@@ -32,6 +32,7 @@
         </a-layout-sider>
         <a-layout-content :style="{ padding: '0 24px', height: '100%', width: '100%' }">
           <!--todo: 路由跳转-->
+          <Breadcrumb />
           <router-view />
         </a-layout-content>
       </a-layout>
@@ -60,6 +61,7 @@ const openKeys = ref<string[]>(['']) // 子tab下的展开
 const { menu } = useStore()
 const childComponent: any = ref(null)
 const router = useRouter()
+
 onMounted(() => {
   selectedKeys.value = menu.selectedKeys
   openKeys.value = menu.openKeys
@@ -77,6 +79,7 @@ const getData = () => {
 }
 const setData = (data: any) => {
   // console.log('12313123', data, router.currentRoute.value.fullPath)
+  console.log(selectedKeys.value, '=========321312312321==========')
   menu.setSelectKeys(selectedKeys.value) 
 }
 const cancelSelect = () => {

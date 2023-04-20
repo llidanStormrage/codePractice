@@ -9,6 +9,13 @@ const NotFoundStyle = {
     'height': '60vh',
 }
 const wayBack = () => {
+    // 手动触发的时候需要改一下 首页的breadcrumb
+    menu.setBreadCrumb([{
+        name: '首页',
+        path: '/',
+        child: true,
+        key: '1'
+    }])
     router.push(menu.path)
 }
 </script>
